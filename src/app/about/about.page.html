@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>歌手</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div *ngFor="let item of singerData" style="background: #222222">
+        <h5 style="padding-left: 10px;
+    color: #fff;
+    font-size: 16px;"> {{item.index}}</h5>
+        <ion-item *ngFor="let itemChild of item.childNode" style="background: hsla(254, 100%, 67%, 0.25)">
+            <ng-container>
+                <!--<div class="singer-l" (click)="selectItem(itemChild.Fsinger_mid)">-->
+                <!--<img class="singerImg" [src]="itemChild._Fsinger_mid" alt="">-->
+                <!--<span class="singer-name">{{itemChild.Fsinger_name}}</span>-->
+                <!--</div>-->
+                <ion-avatar slot="start">
+                    <img [src]="itemChild._Fsinger_mid"/>
+                </ion-avatar>
+                <ion-label>
+                    <span class="singer-name">{{itemChild.Fsinger_name}}</span>
+                </ion-label>
+            </ng-container>
+
+        </ion-item>
+    </div>
+
+</ion-content>
+
