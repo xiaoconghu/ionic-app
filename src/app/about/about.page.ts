@@ -18,7 +18,8 @@ export class AboutPage implements OnInit {
     }
 
     getSingerList() {
-        let data = [], arr = [];
+        let data = [];
+        const arr = [];
         const generateBig = CommonUtil.generateBig_1();
         this.recommendService.getSingerList().subscribe((success: any) => {
             data = success.data.list;
@@ -30,14 +31,14 @@ export class AboutPage implements OnInit {
             });
             this.singerData.push({index: '热', childNode: arr});
             generateBig.forEach(item => {
-                const arr = data.filter((_item, index) => {
+                const _arr = data.filter((_item, index) => {
                     if (item === _item.Findex) {
                         return _item;
                     }
                 });
                 let obj;
                 if (data.length > 0) {
-                    obj = {index: item, childNode: arr};
+                    obj = {index: item, childNode: _arr};
                 }
                 this.singerData.push(obj);
             });
